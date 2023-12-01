@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "Name": "Peter",
+      "Class": "3C",
+      "Age": 17,
+      "isNRI": false,
+      "Address": {
+        "Address1": "This is an example of Address1",
+        "Address2": "This is address 2",
+        "City": "Warsaw",
+        "State": "Mazowsze",
+        "ZipCode": "01-555",
+        "Country": "Poland"
+      }
+    },
+    {
+      "id": 2,
+      "Name": "Jane",
+      "Class": "4A",
+      "Age": 16,
+      "isNRI": true,
+      "Address": {
+        "Address1": "This is another example of Address1",
+        "Address2": "This is another address 2",
+        "City": "Berlin",
+        "State": "Brandenburg",
+        "ZipCode": "12345",
+        "Country": "Germany"
+      }
+    },
+    {
+      "id": 3,
+      "Name": "John",
+      "Class": "5B",
+      "Age": 18,
+      "isNRI": false,
+      "Address": {
+        "Address1": "This is a different example of Address1",
+        "Address2": "This is a different address 2",
+        "City": "Paris",
+        "State": "Île-de-France",
+        "ZipCode": "75001",
+        "Country": "France"
+      }
+    }
+  ]
+  

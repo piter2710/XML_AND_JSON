@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Information</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Age</th>
+        <th>isNRI</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody id="studentTableBody">
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch JSON data from the file
+    fetch('student.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Populate the HTML table with JSON data
+        const tableBody = document.getElementById('studentTableBody');
+
+        data.forEach(student => {
+          const row = tableBody.insertRow();
+
+          // Iterate over each property of the student object
+          for (const key in student) {
+            if (key === 'Address') {
+              // Access properties from the nested Address object
+              for (const addressKey in student[key]) {
+                const addressCell = row.insertCell();
+                addressCell.textContent = student[key][addressKey];
+              }
+            } else {
+              // Insert empty cells for non-nested properties
+              const cell = row.insertCell();
+              cell.textContent = student[key];
+            }
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching or parsing JSON data:', error);
+      });
+  </script>
+  
+</body>
+</html>
