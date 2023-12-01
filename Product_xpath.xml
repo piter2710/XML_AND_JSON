@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <Product>
+        <Name>POCASTS</Name>
+        <Description>SAP PO eLearnings</Description>
+        <Price>$45</Price>
+        <Course>
+            <Title>Inctroduction to XPATH</Title>
+            <Price>$45</Price>
+        </Course>
+    </Product>
+    

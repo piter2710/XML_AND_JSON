@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ProductListing title = "Microsoft Programs">
+    <Product title="MS Word">
+        <Name>Word</Name>
+        <Description>Microsoft Word</Description>
+        <Price>$99</Price>
+    </Product>
+    <Product title="MS Excel">
+        <Name>Excel</Name>
+        <Description>Spreadsheet</Description>
+        <Price>$299</Price>
+    </Product>
+</ProductListing>

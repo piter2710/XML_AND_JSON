@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <p id ="demo"></p>
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+                showResult(xmlDoc);
+            }
+        };
+        xhttp.open("GET", "Product_xpath.xml", true);
+        xhttp.send();
+
+        function showResult(xml) {
+            var txt = "";
+            var path = "/bookstore/book/title";
+            
+            if (document.implementation.hasFeature("XPath", "3.0")) {
+                var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+                var result = nodes.iterateNext();
+                while (result) {
+                    txt += result.childNodes[0].nodeValue + "<br>";
+                    result = nodes.iterateNext();
+                } 
+            } else {
+                // Code for browsers that do not support XPath
+                var nodeArray = xml.getElementsByTagName("title");
+                for (var i = 0; i < nodeArray.length; i++) {
+                    txt += nodeArray[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

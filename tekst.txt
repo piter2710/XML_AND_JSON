@@ -1,0 +1,7 @@
+/Product
+/Product/Course
+/Product/Course/Price
+/Product/Course/Title
+/Product/Description
+/Product/Name
+/Product/Price
